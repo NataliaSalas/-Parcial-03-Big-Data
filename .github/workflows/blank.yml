@@ -36,5 +36,7 @@ jobs:
           
           pip install -r punto_3/requirements.txt
           
-          cd punto_3/clients_files pytest
-          cd ../kinesis_files python test_kinesis_01.py
+          cd punto_3/clients_files 
+          pytest
+          cd ../kinesis_files 
+          python test_kinesis_01.py
