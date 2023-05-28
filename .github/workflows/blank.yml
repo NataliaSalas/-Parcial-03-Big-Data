@@ -27,6 +27,13 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.8'
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with: 
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY_ID}}
+          aws-session-token: ${{secrets.AWS_SESSION_TOKEN}}
+          aws-region: us-east-1
           
       - name: Install virtualenv and requeriments and Pytest Execution
         run: |
@@ -40,3 +47,9 @@ jobs:
           pytest
           cd ../kinesis_files 
           python test_kinesis_01.py
+      - name: Update code
+        run: |
+          source env/bin/activate
+          aws s3 cp punto_2/parcial_03_big_data.ipynb s3://aws-emr-resources-070749073205-us-east-1/notebooks/e-5SG6CJ0IP3D4A34H9K2ZOYW7S/
+
+    
