@@ -53,3 +53,6 @@ jobs:
           aws s3 cp punto_2/parcial_03_big_data.ipynb s3://aws-emr-resources-070749073205-us-east-1/notebooks/e-5SG6CJ0IP3D4A34H9K2ZOYW7S/
 
     
+    
+    
+    
